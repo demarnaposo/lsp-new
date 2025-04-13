@@ -9,6 +9,9 @@ class Regency extends Model
 {
     use HasFactory;
 
+
+    // Tabel Kabupaten atau Kota
+
     protected $fillable = ['name', 'province_id'];
 
     // public function province()

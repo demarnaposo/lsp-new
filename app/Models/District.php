@@ -9,6 +9,8 @@ class District extends Model
 {
     use HasFactory;
 
+    // Tabel Kecamatan
+
     protected $fillable = ['name', 'regency_id'];
 
     public function regency()

@@ -2,7 +2,7 @@
     <div class="sidebar-header position-relative">
         <div class="d-flex justify-content-between align-items-center">
             <div class="logo">
-                <a href="index.html">{{ Auth::user()->role->name }}</a>
+                <a href={{ route('dashboard') }}>{{ Auth::user()->role->name }}</a>
             </div>
             <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
@@ -47,6 +47,40 @@
                     <i class="bi bi-grid-fill"></i>
                     <span>Dashboard</span>
                 </a>
+
+
+            </li>
+
+            <li class="sidebar-item {{ request()->routeIs('profile.*') ? 'active' : '' }} has-sub">
+                <a href="#" class='sidebar-link'>
+                    <i class="bi bi-person-circle"></i>
+                    <span>Profil</span>
+                </a>
+
+                <ul class="submenu active">
+
+                    <li class="submenu-item {{ request()->routeIs('profile.*') ? 'active' : '' }}">
+                        <a href="{{ route('profile.index') }}" class="submenu-link">Profil</a>
+
+                    </li>
+
+                    <li class="submenu-item  ">
+
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                            this.closest('form').submit();" class="submenu-link">Logout</a>
+                            {{-- <x-dropdown-link :href="route('logout')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                {{ __('Log Out') }}
+                            </x-dropdown-link> --}}
+                        </form>
+
+                    </li>
+
+                </ul>
 
 
             </li>
@@ -235,40 +269,6 @@
 
             </li>
 
-
-            <li class="sidebar-item {{ request()->routeIs('profile.*') ? 'active' : '' }} has-sub">
-                <a href="#" class='sidebar-link'>
-                    <i class="bi bi-person-circle"></i>
-                    <span>Akun</span>
-                </a>
-
-                <ul class="submenu active">
-
-                    <li class="submenu-item {{ request()->routeIs('profile.index') ? 'active' : '' }}">
-                        <a href="{{ route('profile.index') }}" class="submenu-link">Profil</a>
-
-                    </li>
-
-                    <li class="submenu-item  ">
-
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-
-                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                            this.closest('form').submit();" class="submenu-link">Logout</a>
-                            {{-- <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Log Out') }}
-                            </x-dropdown-link> --}}
-                        </form>
-
-                    </li>
-
-                </ul>
-
-
-            </li>
 
             <li class="sidebar-title">Forms &amp; Tables</li>
 

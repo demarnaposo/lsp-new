@@ -16,7 +16,7 @@ class UserController extends Controller
 
         $user = User::all();
 
-        dd($user);
+        // dd($user);
 
         return view('user.index', [
             'title' => $title,

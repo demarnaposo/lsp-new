@@ -2,12 +2,13 @@
 
 
     <!-- Select2 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+    {{-- <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" /> --}}
+
+    <link href={{ asset('assets/select2/dist/css/select2.min.css') }} rel="stylesheet" />
 
 
     <form method="POST" action="{{ route('register') }}">
         @csrf
-
 
         <div>
             <x-input-label for="no_ktp" :value="__('Nomor KTP/NIK')" />
@@ -111,7 +112,7 @@
     <!-- jQuery (Required for Select2) -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Select2 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+    <script src={{ asset('assets/select2/dist/js/select2.min.js') }}></script>
 
     <script>
         $(document).ready(function() {
