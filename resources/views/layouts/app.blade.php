@@ -22,6 +22,8 @@
     <link rel="stylesheet" href={{ asset('assets/compiled/css/app-dark.css') }}>
     <link rel="stylesheet" href={{ asset('assets/compiled/css/iconly.css') }}>
 
+    @stack('styles')
+
 
     <!-- Scripts -->
     {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
@@ -77,8 +79,10 @@
 
 
     <!-- Need: Apexcharts -->
-    <script src={{ asset('assets/extensions/apexcharts/apexcharts.min.js') }}></script>
-    <script src={{ asset('assets/static/js/pages/dashboard.js') }}></script>
+    {{-- <script src={{ asset('assets/extensions/apexcharts/apexcharts.min.js') }}></script> --}}
+    {{-- <script src={{ asset('assets/static/js/pages/dashboard.js') }}></script> --}}
+
+    @stack('scripts')
 
 </body>
 

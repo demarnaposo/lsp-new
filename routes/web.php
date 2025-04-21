@@ -18,15 +18,15 @@ Route::get('/districts/{regency_id}', [LocationController::class, 'getDistricts'
 Route::get('/sub-districts/{district_id}', [LocationController::class, 'getSubDistricts']);
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('dashboard.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
 Route::middleware('auth')->group(function () {
     Route::prefix('profile')->name('profile.')->group(function () {
         Route::get('/', [ProfileController::class, 'index'])->name('index'); // Show profile
-        Route::get('/edit', [ProfileController::class, 'edit'])->name('edit'); // Show edit form
-        Route::patch('/', [ProfileController::class, 'update'])->name('update'); // Update profile
+        Route::get('/{id}/edit', [ProfileController::class, 'edit'])->name('edit'); // Show edit form
+        Route::put('/{id}', [ProfileController::class, 'update'])->name('update'); // Update profile
         Route::delete('/', [ProfileController::class, 'destroy'])->name('destroy'); // Delete profile
     });
 });
