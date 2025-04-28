@@ -51,7 +51,7 @@
                                         <td>Offenburg</td>
                                         <td>Offenburg</td>
                                         <td>
-                                            <a href="{{ Storage::url($s->file) }}" target="_blank">
+                                            <a href="{{ asset('storage/file/' . $s->file) }}" target="_blank">
                                                 {{-- <i class="fas fa-file-pdf"></i> --}}
                                                 <i class="far fa-file-pdf fa-2x text-danger"></i>
                                             </a>
