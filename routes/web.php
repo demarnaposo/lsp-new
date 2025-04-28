@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\SkemaKkniController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 
 Route::get('/', function () {
@@ -23,13 +24,27 @@ Route::get('/dashboard', function () {
 
 
 Route::middleware('auth')->group(function () {
+
+
+
     Route::prefix('profile')->name('profile.')->group(function () {
         Route::get('/', [ProfileController::class, 'index'])->name('index'); // Show profile
         Route::get('/{id}/edit', [ProfileController::class, 'edit'])->name('edit'); // Show edit form
         Route::put('/{id}', [ProfileController::class, 'update'])->name('update'); // Update profile
         Route::delete('/', [ProfileController::class, 'destroy'])->name('destroy'); // Delete profile
     });
+
+
+    Route::prefix('skema-kkni')->name('skema-kkni.')->group(function () {
+
+
+        Route::get('/', [SkemaKkniController::class, 'index'])->name('index');
+
+    });
 });
+
+
+
 
 // Route::middleware('auth')->group(function () {
 //     Route::get('/', [ProfileController::class, 'index'])->name('profile.index');
