@@ -37,10 +37,20 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('skema-kkni')->name('skema-kkni.')->group(function () {
 
-
+        // Menampilkan daftar skema KKNI
         Route::get('/', [SkemaKkniController::class, 'index'])->name('index');
 
+        // Menampilkan form create
+        Route::get('/create', [SkemaKkniController::class, 'create'])->name('create');
+
+        // Proses store (simpan data) dengan method POST
+        Route::post('/', [SkemaKkniController::class, 'store'])->name('store');
+
+        // Jika ada route untuk edit atau update, bisa ditambahkan di sini
+        // Route::get('/edit/{id}', [SkemaKkniController::class, 'edit'])->name('edit');
+        // Route::put('/update/{id}', [SkemaKkniController::class, 'update'])->name('update');
     });
+
 });
 
 

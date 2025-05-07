@@ -25,8 +25,9 @@
             <div class="card">
                 <div class="card-header">
                     <h5 class="card-title">
-                        <div class="btn btn-primary">Tambah Data</div>
+                        <a href="{{ route('skema-kkni.create') }}" class="btn btn-primary">Tambah Data</a>
                     </h5>
+
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">

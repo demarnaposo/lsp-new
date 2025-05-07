@@ -26,7 +26,11 @@ class SkemaKkniController extends Controller
      */
     public function create()
     {
-        //
+        $title = "Tambah Data Skema";
+
+        // dd($title);
+
+        return view("skema-kkni.create", compact("title"));
     }
 
     /**
@@ -34,7 +38,30 @@ class SkemaKkniController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        dd($request->all());
+
+         $request->validate([
+            'file' => 'required|mimes:pdf|max:2048', // max 2MB
+        ]);
+
+        $skema = new SkemaKkni();
+
+        if ($request->hasFile('file')) {
+
+            $file = $request->file('file');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('storage/file/'), $filename);
+
+            $skema->file = $filename;
+
+            $skema->save();
+
+
+
+        }
+
+        return redirect()->route('skema-kkni.index')->with('success', 'Skema berhasil disimpan!');
     }
 
     /**
