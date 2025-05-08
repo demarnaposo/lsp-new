@@ -47,9 +47,25 @@
                                 @forelse ($skema as $no => $s)
                                     <tr>
                                         <td>{{ $no + 1 }}.</td>
-                                        <td>{{ $s->kode_skema }}</td>
+                                        <td>
+                                            <div>{{ $s->kode_skema }}</div>
+                                            <div><span class="badge bg-success">Kedalaman bukti :
+                                                    {{ $s->apl02 }}</span></div>
+                                        </td>
                                         <td>{{ $s->judul }}</td>
-                                        <td>Offenburg</td>
+                                        <td>
+                                            <ul>
+                                                @foreach ($getunit[$s->id] ?? [] as $unit)
+                                                    <li>
+                                                        <span><strong>{{ $unit->no_skkni }}</strong></span>
+                                                    </li>
+                                                    <span>{{ $unit->nama }}</span>
+                                                    <span>
+                                                        <a href="#" class="badge bg-danger">Unduh Dok. Standard Kompetensi</a>
+                                                    </span>
+                                                @endforeach
+                                            </ul>
+                                        </td>
                                         <td>Offenburg</td>
                                         <td>
                                             <a href="{{ asset('storage/file/' . $s->file) }}" target="_blank">
@@ -59,8 +75,15 @@
                                         </td>
 
                                         <td>
-                                            <span class="badge bg-success">Active</span>
+                                            <a href="#" class="badge bg-primary">Lihat</a>
+                                            <a href="#" class="badge bg-danger">Hapus</a>
+                                            @if ($s->aktif == 'Y')
+                                                <span class="badge bg-success">Aktif</span>
+                                            @else
+                                                <span class="badge bg-danger">Tidak Aktif</span>
+                                            @endif
                                         </td>
+
                                     </tr>
                                 @empty
                                     <tr>

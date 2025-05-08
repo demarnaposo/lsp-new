@@ -34,7 +34,8 @@
                                     <label for="kode_skema">Kode Skema</label>
                                     <input type="text" id="kode_skema"
                                         class="form-control @error('kode_skema') is-invalid @enderror"
-                                        placeholder="Masukkan Kode Skema" name="kode_skema">
+                                        placeholder="Masukkan Kode Skema" name="kode_skema"
+                                        value="{{ old('kode_skema') }}">
                                     @error('kode_skema')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -44,7 +45,7 @@
                                     <label for="judul">Judul Skema</label>
                                     <input type="text" id="judul"
                                         class="form-control @error('judul') is-invalid @enderror"
-                                        placeholder="Masukkan Judul" name="judul">
+                                        placeholder="Masukkan Judul" name="judul" value="{{ old('judul') }}">
                                     @error('judul')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -54,7 +55,7 @@
                                     <label for="judul_eng">Judul Skema (Bahasa Inggris)</label>
                                     <input type="text" id="judul_eng"
                                         class="form-control @error('judul_eng') is-invalid @enderror"
-                                        placeholder="Masukkan Judul" name="judul_eng">
+                                        placeholder="Masukkan Judul" name="judul_eng" value="{{ old('judul_eng') }}">
                                     @error('judul_eng')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -66,7 +67,8 @@
                                                 <label for="kbji">Kode KBJI</label>
                                                 <input type="text" id="kbji"
                                                     class="form-control @error('kbji') is-invalid @enderror"
-                                                    placeholder="Masukkan Kode KBJI" name="kbji">
+                                                    placeholder="Masukkan Kode KBJI" name="kbji"
+                                                    value="{{ old('kbji') }}">
                                                 @error('kbji')
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
@@ -100,36 +102,21 @@
                                     <select id="skema_induk" name="skema_induk"
                                         class="form-select @error('skema_induk') is-invalid @enderror">
                                         <option value="">-- Pilih Skema --</option>
-                                        <option value="9">Level 9</option>
-                                        <option value="8">Level 8</option>
-                                        <option value="7">Level 7</option>
-                                        <option value="6">Level 6</option>
-                                        <option value="5">Level 5</option>
-                                        <option value="4">Level 4</option>
-                                        <option value="3">Level 3</option>
-                                        <option value="2">Level 2</option>
-                                        <option value="1">Level 1</option>
+                                        <option value="NULL">Sebagai Skema Induk</option>
                                     </select>
                                     @error('skema_induk')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="skema_induk">Kedalaman bukti yang akan diperoleh</label>
-                                    <select id="skema_induk" name="skema_induk"
-                                        class="form-select @error('skema_induk') is-invalid @enderror">
-                                        <option value="">-- Pilih Skema --</option>
-                                        {{-- <option value="9">Level 9</option>
-                                        <option value="8">Level 8</option>
-                                        <option value="7">Level 7</option>
-                                        <option value="6">Level 6</option>
-                                        <option value="5">Level 5</option>
-                                        <option value="4">Level 4</option>
-                                        <option value="3">Level 3</option>
-                                        <option value="2">Level 2</option>
-                                        <option value="1">Level 1</option> --}}
+                                    <label for="apl02">Kedalaman bukti yang akan diperoleh</label>
+                                    <select id="apl02" name="apl02"
+                                        class="form-select @error('apl02') is-invalid @enderror">
+                                        <option value="">-- Pilih --</option>
+                                        <option value='elemen'>Elemen Kompetensi</option>
+                                        <option value='KUK'>Kriteria Unjuk Kerja (KUK)</option>
                                     </select>
-                                    @error('skema_induk')
+                                    @error('apl02')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
@@ -139,7 +126,8 @@
                                     <label for="areakerja">Bidang / Area Kerja Okupasi</label>
                                     <input type="text" id="areakerja"
                                         class="form-control @error('areakerja') is-invalid @enderror"
-                                        placeholder="Masukkan Bidang / Area Kerja" name="areakerja">
+                                        placeholder="Masukkan Bidang / Area Kerja" name="areakerja"
+                                        value="{{ old('areakerja') }}">
                                     @error('areakerja')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -148,7 +136,8 @@
                                     <label for="areakerja_eng">Bidang / Area Kerja Okupasi (Bahasa Inggris)</label>
                                     <input type="text" id="areakerja_eng"
                                         class="form-control @error('areakerja_eng') is-invalid @enderror"
-                                        placeholder="Masukkan Bidang / Area Kerja" name="areakerja_eng">
+                                        placeholder="Masukkan Bidang / Area Kerja" name="areakerja_eng"
+                                        value="{{ old('areakerja_eng') }}">
                                     @error('areakerja_eng')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -161,7 +150,8 @@
                                                 <label for="kode_sektor">Kode Sektor</label>
                                                 <input type="text" id="kode_sektor"
                                                     class="form-control @error('kode_sektor') is-invalid @enderror"
-                                                    placeholder="Masukkan Kode Sektor" name="kode_sektor">
+                                                    placeholder="Masukkan Kode Sektor" name="kode_sektor"
+                                                    value="{{ old('kode_sektor') }}">
                                                 @error('kode_sektor')
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
@@ -172,7 +162,8 @@
                                                 <label for="kbli">Kode KBLI</label>
                                                 <input type="text" id="kbli"
                                                     class="form-control @error('kbli') is-invalid @enderror"
-                                                    placeholder="Masukkan Kode KBLI" name="kbli">
+                                                    placeholder="Masukkan Kode KBLI" name="kbli"
+                                                    value="{{ old('kbli') }}">
                                                 @error('kbli')
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
@@ -199,19 +190,49 @@
                                     <label for="keterangan_bukti">Keterangan Bukti yang akan diperoleh</label>
                                     <input type="text" id="keterangan_bukti"
                                         class="form-control @error('keterangan_bukti') is-invalid @enderror"
-                                        placeholder="Masukkan Keterangan Bukti" name="keterangan_bukti">
+                                        placeholder="Masukkan Keterangan Bukti" name="keterangan_bukti"
+                                        value="{{ old('keterangan_bukti') }}">
                                     @error('keterangan_bukti')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
 
                                 <div class="form-group">
+                                    <label for="aktif">Status</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="aktif" id="statusAktif"
+                                        value="Y" {{ old('aktif') == 'Y' ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="statusAktif">
+                                        Aktif
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="aktif"
+                                        id="statusTidakAktif" value="N"
+                                        {{ old('aktif') == 'N' ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="statusTidakAktif">
+                                        Tidak Aktif
+                                    </label>
+                                </div>
+                                @error('aktif')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
+
+
+                                <div class="form-group">
                                     <label for="file">Dokumen Skema</label>
                                     <div class="card">
                                         <div class="card-body">
                                             <input type="file" name="file" id="file"
-                                                class="basic-filepond" accept="application/pdf">
+                                                class="basic-filepond @error('file') is-invalid @enderror"
+                                                accept="application/pdf">
+                                            @error('file')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
+
                                     </div>
                                 </div>
 
