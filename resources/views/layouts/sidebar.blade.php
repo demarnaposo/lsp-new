@@ -25,8 +25,8 @@
                     <label class="form-check-label"></label>
                 </div>
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
-                    role="img" class="iconify iconify--mdi" width="20" height="20" preserveAspectRatio="xMidYMid meet"
-                    viewBox="0 0 24 24">
+                    role="img" class="iconify iconify--mdi" width="20" height="20"
+                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                     <path fill="currentColor"
                         d="m17.75 4.09l-2.53 1.94l.91 3.06l-2.63-1.81l-2.63 1.81l.91-3.06l-2.53-1.94L12.44 4l1.06-3l1.06 3l3.19.09m3.5 6.91l-1.64 1.25l.59 1.98l-1.7-1.17l-1.7 1.17l.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95l2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85c-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14c.4-.4.82-.76 1.27-1.08c.75-.53 1.93.36 1.85 1.19c-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82c-2.81 3.14-2.7 7.96.31 10.98c3.02 3.01 7.84 3.12 10.98.31Z">
                     </path>
@@ -41,8 +41,7 @@
         <ul class="menu">
             <li class="sidebar-title">Menu</li>
 
-            <li
-                class="sidebar-item {{ request()->routeIs('dashboard') ? 'active' : '' }} ">
+            <li class="sidebar-item {{ request()->routeIs('dashboard') ? 'active' : '' }} ">
                 <a href="{{ route('dashboard') }}" class='sidebar-link'>
                     <i class="bi bi-grid-fill"></i>
                     <span>Dashboard</span>
@@ -69,8 +68,10 @@
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
-                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                            this.closest('form').submit();" class="submenu-link">Logout</a>
+                            <a href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                            this.closest('form').submit();"
+                                class="submenu-link">Logout</a>
                             {{-- <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
@@ -85,609 +86,596 @@
 
             </li>
 
-        @if(Auth::check() && Auth::user()->role_id == 1)
+            @if (Auth::check() && Auth::user()->role_id == 1)
+                <li class="sidebar-item {{ request()->routeIs('skema-kkni.*') ? 'active' : '' }}">
+                    <a href="{{ route('skema-kkni.index') }}" class='sidebar-link'>
+                        <i class="bi bi-envelope-fill"></i>
+                        <span>Skema Sertifikasi</span>
+                    </a>
 
-        <li
-        class="sidebar-item {{ request()->routeIs('skema-kkni.*') ? 'active' : '' }}">
-        <a href={{ route('skema-kkni.index') }} class='sidebar-link'>
-            <i class="bi bi-envelope-fill"></i>
-            <span>Skema Sertifikasi</span>
-        </a>
 
+                </li>
 
-    </li>
-          <li
-          class="sidebar-item  has-sub">
-          <a href="#" class='sidebar-link'>
-              <i class="bi bi-stack"></i>
-              <span>Components</span>
-          </a>
 
-          <ul class="submenu ">
+                <li class="sidebar-item {{ request()->routeIs('skkni.*') ? 'active' : '' }}">
+                    <a href="{{ route('skkni.index') }}" class='sidebar-link'>
+                        <i class="bi bi-envelope-fill"></i>
+                        <span>Standar Kompetensi (SKKNI)</span>
+                    </a>
 
-              <li class="submenu-item  ">
-                  <a href="component-accordion.html" class="submenu-link">Accordion</a>
 
-              </li>
+                </li>
+                <li class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-stack"></i>
+                        <span>Components</span>
+                    </a>
 
-              <li class="submenu-item  ">
-                  <a href="component-alert.html" class="submenu-link">Alert</a>
+                    <ul class="submenu ">
 
-              </li>
+                        <li class="submenu-item  ">
+                            <a href="component-accordion.html" class="submenu-link">Accordion</a>
 
-              <li class="submenu-item  ">
-                  <a href="component-badge.html" class="submenu-link">Badge</a>
+                        </li>
 
-              </li>
+                        <li class="submenu-item  ">
+                            <a href="component-alert.html" class="submenu-link">Alert</a>
 
-              <li class="submenu-item  ">
-                  <a href="component-breadcrumb.html" class="submenu-link">Breadcrumb</a>
+                        </li>
 
-              </li>
+                        <li class="submenu-item  ">
+                            <a href="component-badge.html" class="submenu-link">Badge</a>
 
-              <li class="submenu-item  ">
-                  <a href="component-button.html" class="submenu-link">Button</a>
+                        </li>
 
-              </li>
+                        <li class="submenu-item  ">
+                            <a href="component-breadcrumb.html" class="submenu-link">Breadcrumb</a>
 
-              <li class="submenu-item  ">
-                  <a href="component-card.html" class="submenu-link">Card</a>
+                        </li>
 
-              </li>
+                        <li class="submenu-item  ">
+                            <a href="component-button.html" class="submenu-link">Button</a>
 
-              <li class="submenu-item  ">
-                  <a href="component-carousel.html" class="submenu-link">Carousel</a>
+                        </li>
 
-              </li>
+                        <li class="submenu-item  ">
+                            <a href="component-card.html" class="submenu-link">Card</a>
 
-              <li class="submenu-item  ">
-                  <a href="component-collapse.html" class="submenu-link">Collapse</a>
+                        </li>
 
-              </li>
+                        <li class="submenu-item  ">
+                            <a href="component-carousel.html" class="submenu-link">Carousel</a>
 
-              <li class="submenu-item  ">
-                  <a href="component-dropdown.html" class="submenu-link">Dropdown</a>
+                        </li>
 
-              </li>
+                        <li class="submenu-item  ">
+                            <a href="component-collapse.html" class="submenu-link">Collapse</a>
 
-              <li class="submenu-item  ">
-                  <a href="component-list-group.html" class="submenu-link">List Group</a>
+                        </li>
 
-              </li>
+                        <li class="submenu-item  ">
+                            <a href="component-dropdown.html" class="submenu-link">Dropdown</a>
 
-              <li class="submenu-item  ">
-                  <a href="component-modal.html" class="submenu-link">Modal</a>
+                        </li>
 
-              </li>
+                        <li class="submenu-item  ">
+                            <a href="component-list-group.html" class="submenu-link">List Group</a>
 
-              <li class="submenu-item  ">
-                  <a href="component-navs.html" class="submenu-link">Navs</a>
+                        </li>
 
-              </li>
+                        <li class="submenu-item  ">
+                            <a href="component-modal.html" class="submenu-link">Modal</a>
 
-              <li class="submenu-item  ">
-                  <a href="component-pagination.html" class="submenu-link">Pagination</a>
+                        </li>
 
-              </li>
+                        <li class="submenu-item  ">
+                            <a href="component-navs.html" class="submenu-link">Navs</a>
 
-              <li class="submenu-item  ">
-                  <a href="component-progress.html" class="submenu-link">Progress</a>
+                        </li>
 
-              </li>
+                        <li class="submenu-item  ">
+                            <a href="component-pagination.html" class="submenu-link">Pagination</a>
 
-              <li class="submenu-item  ">
-                  <a href="component-spinner.html" class="submenu-link">Spinner</a>
+                        </li>
 
-              </li>
+                        <li class="submenu-item  ">
+                            <a href="component-progress.html" class="submenu-link">Progress</a>
 
-              <li class="submenu-item  ">
-                  <a href="component-toasts.html" class="submenu-link">Toasts</a>
+                        </li>
 
-              </li>
+                        <li class="submenu-item  ">
+                            <a href="component-spinner.html" class="submenu-link">Spinner</a>
 
-              <li class="submenu-item  ">
-                  <a href="component-tooltip.html" class="submenu-link">Tooltip</a>
+                        </li>
 
-              </li>
+                        <li class="submenu-item  ">
+                            <a href="component-toasts.html" class="submenu-link">Toasts</a>
 
-          </ul>
+                        </li>
 
+                        <li class="submenu-item  ">
+                            <a href="component-tooltip.html" class="submenu-link">Tooltip</a>
 
-      </li>
+                        </li>
 
+                    </ul>
 
-            <li
-                class="sidebar-item  has-sub">
-                <a href="#" class='sidebar-link'>
-                    <i class="bi bi-collection-fill"></i>
-                    <span>Extra Components</span>
-                </a>
 
-                <ul class="submenu ">
+                </li>
 
-                    <li class="submenu-item  ">
-                        <a href="extra-component-avatar.html" class="submenu-link">Avatar</a>
 
-                    </li>
+                <li class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-collection-fill"></i>
+                        <span>Extra Components</span>
+                    </a>
 
-                    <li class="submenu-item  ">
-                        <a href="extra-component-divider.html" class="submenu-link">Divider</a>
+                    <ul class="submenu ">
 
-                    </li>
+                        <li class="submenu-item  ">
+                            <a href="extra-component-avatar.html" class="submenu-link">Avatar</a>
 
-                    <li class="submenu-item  ">
-                        <a href="extra-component-date-picker.html" class="submenu-link">Date Picker</a>
+                        </li>
 
-                    </li>
+                        <li class="submenu-item  ">
+                            <a href="extra-component-divider.html" class="submenu-link">Divider</a>
 
-                    <li class="submenu-item  ">
-                        <a href="extra-component-sweetalert.html" class="submenu-link">Sweet Alert</a>
+                        </li>
 
-                    </li>
+                        <li class="submenu-item  ">
+                            <a href="extra-component-date-picker.html" class="submenu-link">Date Picker</a>
 
-                    <li class="submenu-item  ">
-                        <a href="extra-component-toastify.html" class="submenu-link">Toastify</a>
+                        </li>
 
-                    </li>
+                        <li class="submenu-item  ">
+                            <a href="extra-component-sweetalert.html" class="submenu-link">Sweet Alert</a>
 
-                    <li class="submenu-item  ">
-                        <a href="extra-component-rating.html" class="submenu-link">Rating</a>
+                        </li>
 
-                    </li>
+                        <li class="submenu-item  ">
+                            <a href="extra-component-toastify.html" class="submenu-link">Toastify</a>
 
-                </ul>
+                        </li>
 
+                        <li class="submenu-item  ">
+                            <a href="extra-component-rating.html" class="submenu-link">Rating</a>
 
-            </li>
+                        </li>
 
-            <li
-                class="sidebar-item  has-sub">
-                <a href="#" class='sidebar-link'>
-                    <i class="bi bi-grid-1x2-fill"></i>
-                    <span>Layouts</span>
-                </a>
+                    </ul>
 
-                <ul class="submenu ">
 
-                    <li class="submenu-item  ">
-                        <a href="layout-default.html" class="submenu-link">Default Layout</a>
+                </li>
 
-                    </li>
+                <li class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-grid-1x2-fill"></i>
+                        <span>Layouts</span>
+                    </a>
 
-                    <li class="submenu-item  ">
-                        <a href="layout-vertical-1-column.html" class="submenu-link">1 Column</a>
+                    <ul class="submenu ">
 
-                    </li>
+                        <li class="submenu-item  ">
+                            <a href="layout-default.html" class="submenu-link">Default Layout</a>
 
-                    <li class="submenu-item  ">
-                        <a href="layout-vertical-navbar.html" class="submenu-link">Vertical Navbar</a>
+                        </li>
 
-                    </li>
+                        <li class="submenu-item  ">
+                            <a href="layout-vertical-1-column.html" class="submenu-link">1 Column</a>
 
-                    <li class="submenu-item  ">
-                        <a href="layout-rtl.html" class="submenu-link">RTL Layout</a>
+                        </li>
 
-                    </li>
+                        <li class="submenu-item  ">
+                            <a href="layout-vertical-navbar.html" class="submenu-link">Vertical Navbar</a>
 
-                    <li class="submenu-item  ">
-                        <a href="layout-horizontal.html" class="submenu-link">Horizontal Menu</a>
+                        </li>
 
-                    </li>
+                        <li class="submenu-item  ">
+                            <a href="layout-rtl.html" class="submenu-link">RTL Layout</a>
 
-                </ul>
+                        </li>
 
+                        <li class="submenu-item  ">
+                            <a href="layout-horizontal.html" class="submenu-link">Horizontal Menu</a>
 
-            </li>
+                        </li>
 
+                    </ul>
 
-            <li class="sidebar-title">Forms &amp; Tables</li>
 
-            <li
-                class="sidebar-item  has-sub">
-                <a href="#" class='sidebar-link'>
-                    <i class="bi bi-hexagon-fill"></i>
-                    <span>Form Elements</span>
-                </a>
+                </li>
 
-                <ul class="submenu ">
 
-                    <li class="submenu-item  ">
-                        <a href="form-element-input.html" class="submenu-link">Input</a>
+                <li class="sidebar-title">Forms &amp; Tables</li>
 
-                    </li>
+                <li class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-hexagon-fill"></i>
+                        <span>Form Elements</span>
+                    </a>
 
-                    <li class="submenu-item  ">
-                        <a href="form-element-input-group.html" class="submenu-link">Input Group</a>
+                    <ul class="submenu ">
 
-                    </li>
+                        <li class="submenu-item  ">
+                            <a href="form-element-input.html" class="submenu-link">Input</a>
 
-                    <li class="submenu-item  ">
-                        <a href="form-element-select.html" class="submenu-link">Select</a>
+                        </li>
 
-                    </li>
+                        <li class="submenu-item  ">
+                            <a href="form-element-input-group.html" class="submenu-link">Input Group</a>
 
-                    <li class="submenu-item  ">
-                        <a href="form-element-radio.html" class="submenu-link">Radio</a>
+                        </li>
 
-                    </li>
+                        <li class="submenu-item  ">
+                            <a href="form-element-select.html" class="submenu-link">Select</a>
 
-                    <li class="submenu-item  ">
-                        <a href="form-element-checkbox.html" class="submenu-link">Checkbox</a>
+                        </li>
 
-                    </li>
+                        <li class="submenu-item  ">
+                            <a href="form-element-radio.html" class="submenu-link">Radio</a>
 
-                    <li class="submenu-item  ">
-                        <a href="form-element-textarea.html" class="submenu-link">Textarea</a>
+                        </li>
 
-                    </li>
+                        <li class="submenu-item  ">
+                            <a href="form-element-checkbox.html" class="submenu-link">Checkbox</a>
 
-                </ul>
+                        </li>
 
+                        <li class="submenu-item  ">
+                            <a href="form-element-textarea.html" class="submenu-link">Textarea</a>
 
-            </li>
+                        </li>
 
-            <li
-                class="sidebar-item  ">
-                <a href="form-layout.html" class='sidebar-link'>
-                    <i class="bi bi-file-earmark-medical-fill"></i>
-                    <span>Form Layout</span>
-                </a>
+                    </ul>
 
 
-            </li>
+                </li>
 
-            <li
-                class="sidebar-item  has-sub">
-                <a href="#" class='sidebar-link'>
-                    <i class="bi bi-journal-check"></i>
-                    <span>Form Validation</span>
-                </a>
+                <li class="sidebar-item  ">
+                    <a href="form-layout.html" class='sidebar-link'>
+                        <i class="bi bi-file-earmark-medical-fill"></i>
+                        <span>Form Layout</span>
+                    </a>
 
-                <ul class="submenu ">
 
-                    <li class="submenu-item  ">
-                        <a href="form-validation-parsley.html" class="submenu-link">Parsley</a>
+                </li>
 
-                    </li>
+                <li class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-journal-check"></i>
+                        <span>Form Validation</span>
+                    </a>
 
-                </ul>
+                    <ul class="submenu ">
 
+                        <li class="submenu-item  ">
+                            <a href="form-validation-parsley.html" class="submenu-link">Parsley</a>
 
-            </li>
+                        </li>
 
-            <li
-                class="sidebar-item  has-sub">
-                <a href="#" class='sidebar-link'>
-                    <i class="bi bi-pen-fill"></i>
-                    <span>Form Editor</span>
-                </a>
+                    </ul>
 
-                <ul class="submenu ">
 
-                    <li class="submenu-item  ">
-                        <a href="form-editor-quill.html" class="submenu-link">Quill</a>
+                </li>
 
-                    </li>
+                <li class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-pen-fill"></i>
+                        <span>Form Editor</span>
+                    </a>
 
-                    <li class="submenu-item  ">
-                        <a href="form-editor-ckeditor.html" class="submenu-link">CKEditor</a>
+                    <ul class="submenu ">
 
-                    </li>
+                        <li class="submenu-item  ">
+                            <a href="form-editor-quill.html" class="submenu-link">Quill</a>
 
-                    <li class="submenu-item  ">
-                        <a href="form-editor-summernote.html" class="submenu-link">Summernote</a>
+                        </li>
 
-                    </li>
+                        <li class="submenu-item  ">
+                            <a href="form-editor-ckeditor.html" class="submenu-link">CKEditor</a>
 
-                    <li class="submenu-item  ">
-                        <a href="form-editor-tinymce.html" class="submenu-link">TinyMCE</a>
+                        </li>
 
-                    </li>
+                        <li class="submenu-item  ">
+                            <a href="form-editor-summernote.html" class="submenu-link">Summernote</a>
 
-                </ul>
+                        </li>
 
+                        <li class="submenu-item  ">
+                            <a href="form-editor-tinymce.html" class="submenu-link">TinyMCE</a>
 
-            </li>
+                        </li>
 
-            <li
-                class="sidebar-item  ">
-                <a href="table.html" class='sidebar-link'>
-                    <i class="bi bi-grid-1x2-fill"></i>
-                    <span>Table</span>
-                </a>
+                    </ul>
 
 
-            </li>
+                </li>
 
-            <li
-                class="sidebar-item  has-sub">
-                <a href="#" class='sidebar-link'>
-                    <i class="bi bi-file-earmark-spreadsheet-fill"></i>
-                    <span>Datatables</span>
-                </a>
+                <li class="sidebar-item  ">
+                    <a href="table.html" class='sidebar-link'>
+                        <i class="bi bi-grid-1x2-fill"></i>
+                        <span>Table</span>
+                    </a>
 
-                <ul class="submenu ">
 
-                    <li class="submenu-item  ">
-                        <a href="table-datatable.html" class="submenu-link">Datatable</a>
+                </li>
 
-                    </li>
+                <li class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-file-earmark-spreadsheet-fill"></i>
+                        <span>Datatables</span>
+                    </a>
 
-                    <li class="submenu-item  ">
-                        <a href="table-datatable-jquery.html" class="submenu-link">Datatable (jQuery)</a>
+                    <ul class="submenu ">
 
-                    </li>
+                        <li class="submenu-item  ">
+                            <a href="table-datatable.html" class="submenu-link">Datatable</a>
 
-                </ul>
+                        </li>
 
+                        <li class="submenu-item  ">
+                            <a href="table-datatable-jquery.html" class="submenu-link">Datatable (jQuery)</a>
 
-            </li>
+                        </li>
 
-            <li class="sidebar-title">Extra UI</li>
+                    </ul>
 
-            <li
-                class="sidebar-item  has-sub">
-                <a href="#" class='sidebar-link'>
-                    <i class="bi bi-pentagon-fill"></i>
-                    <span>Widgets</span>
-                </a>
 
-                <ul class="submenu ">
+                </li>
 
-                    <li class="submenu-item  ">
-                        <a href="ui-widgets-chatbox.html" class="submenu-link">Chatbox</a>
+                <li class="sidebar-title">Extra UI</li>
 
-                    </li>
+                <li class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-pentagon-fill"></i>
+                        <span>Widgets</span>
+                    </a>
 
-                    <li class="submenu-item  ">
-                        <a href="ui-widgets-pricing.html" class="submenu-link">Pricing</a>
+                    <ul class="submenu ">
 
-                    </li>
+                        <li class="submenu-item  ">
+                            <a href="ui-widgets-chatbox.html" class="submenu-link">Chatbox</a>
 
-                    <li class="submenu-item  ">
-                        <a href="ui-widgets-todolist.html" class="submenu-link">To-do List</a>
+                        </li>
 
-                    </li>
+                        <li class="submenu-item  ">
+                            <a href="ui-widgets-pricing.html" class="submenu-link">Pricing</a>
 
-                </ul>
+                        </li>
 
+                        <li class="submenu-item  ">
+                            <a href="ui-widgets-todolist.html" class="submenu-link">To-do List</a>
 
-            </li>
+                        </li>
 
-            <li
-                class="sidebar-item  has-sub">
-                <a href="#" class='sidebar-link'>
-                    <i class="bi bi-egg-fill"></i>
-                    <span>Icons</span>
-                </a>
+                    </ul>
 
-                <ul class="submenu ">
 
-                    <li class="submenu-item  ">
-                        <a href="ui-icons-bootstrap-icons.html" class="submenu-link">Bootstrap Icons </a>
+                </li>
 
-                    </li>
+                <li class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-egg-fill"></i>
+                        <span>Icons</span>
+                    </a>
 
-                    <li class="submenu-item  ">
-                        <a href="ui-icons-fontawesome.html" class="submenu-link">Fontawesome</a>
+                    <ul class="submenu ">
 
-                    </li>
+                        <li class="submenu-item  ">
+                            <a href="ui-icons-bootstrap-icons.html" class="submenu-link">Bootstrap Icons </a>
 
-                    <li class="submenu-item  ">
-                        <a href="ui-icons-dripicons.html" class="submenu-link">Dripicons</a>
+                        </li>
 
-                    </li>
+                        <li class="submenu-item  ">
+                            <a href="ui-icons-fontawesome.html" class="submenu-link">Fontawesome</a>
 
-                </ul>
+                        </li>
 
+                        <li class="submenu-item  ">
+                            <a href="ui-icons-dripicons.html" class="submenu-link">Dripicons</a>
 
-            </li>
+                        </li>
 
-            <li
-                class="sidebar-item  has-sub">
-                <a href="#" class='sidebar-link'>
-                    <i class="bi bi-bar-chart-fill"></i>
-                    <span>Charts</span>
-                </a>
+                    </ul>
 
-                <ul class="submenu ">
 
-                    <li class="submenu-item  ">
-                        <a href="ui-chart-chartjs.html" class="submenu-link">ChartJS</a>
+                </li>
 
-                    </li>
+                <li class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-bar-chart-fill"></i>
+                        <span>Charts</span>
+                    </a>
 
-                    <li class="submenu-item  ">
-                        <a href="ui-chart-apexcharts.html" class="submenu-link">Apexcharts</a>
+                    <ul class="submenu ">
 
-                    </li>
+                        <li class="submenu-item  ">
+                            <a href="ui-chart-chartjs.html" class="submenu-link">ChartJS</a>
 
-                </ul>
+                        </li>
 
+                        <li class="submenu-item  ">
+                            <a href="ui-chart-apexcharts.html" class="submenu-link">Apexcharts</a>
 
-            </li>
+                        </li>
 
-            <li
-                class="sidebar-item  ">
-                <a href="ui-file-uploader.html" class='sidebar-link'>
-                    <i class="bi bi-cloud-arrow-up-fill"></i>
-                    <span>File Uploader</span>
-                </a>
+                    </ul>
 
 
-            </li>
+                </li>
 
-            <li
-                class="sidebar-item  has-sub">
-                <a href="#" class='sidebar-link'>
-                    <i class="bi bi-map-fill"></i>
-                    <span>Maps</span>
-                </a>
+                <li class="sidebar-item  ">
+                    <a href="ui-file-uploader.html" class='sidebar-link'>
+                        <i class="bi bi-cloud-arrow-up-fill"></i>
+                        <span>File Uploader</span>
+                    </a>
 
-                <ul class="submenu ">
 
-                    <li class="submenu-item  ">
-                        <a href="ui-map-google-map.html" class="submenu-link">Google Map</a>
+                </li>
 
-                    </li>
+                <li class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-map-fill"></i>
+                        <span>Maps</span>
+                    </a>
 
-                    <li class="submenu-item  ">
-                        <a href="ui-map-jsvectormap.html" class="submenu-link">JS Vector Map</a>
+                    <ul class="submenu ">
 
-                    </li>
+                        <li class="submenu-item  ">
+                            <a href="ui-map-google-map.html" class="submenu-link">Google Map</a>
 
-                </ul>
+                        </li>
 
+                        <li class="submenu-item  ">
+                            <a href="ui-map-jsvectormap.html" class="submenu-link">JS Vector Map</a>
 
-            </li>
+                        </li>
 
-            <li
-                class="sidebar-item  has-sub">
-                <a href="#" class='sidebar-link'>
-                    <i class="bi bi-three-dots"></i>
-                    <span>Multi-level Menu</span>
-                </a>
+                    </ul>
 
-                <ul class="submenu ">
 
-                    <li class="submenu-item  has-sub">
-                        <a href="#" class="submenu-link">First Level</a>
+                </li>
 
-                        <ul class="submenu submenu-level-2 ">
+                <li class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-three-dots"></i>
+                        <span>Multi-level Menu</span>
+                    </a>
 
+                    <ul class="submenu ">
 
-                            <li class="submenu-item ">
-                                <a href="ui-multi-level-menu.html" class="submenu-link">Second Level</a>
-                            </li>
+                        <li class="submenu-item  has-sub">
+                            <a href="#" class="submenu-link">First Level</a>
 
-                            <li class="submenu-item ">
-                                <a href="#" class="submenu-link">Second Level Menu</a>
-                            </li>
+                            <ul class="submenu submenu-level-2 ">
 
 
-                        </ul>
+                                <li class="submenu-item ">
+                                    <a href="ui-multi-level-menu.html" class="submenu-link">Second Level</a>
+                                </li>
 
-                    </li>
+                                <li class="submenu-item ">
+                                    <a href="#" class="submenu-link">Second Level Menu</a>
+                                </li>
 
-                    <li class="submenu-item  has-sub">
-                        <a href="#" class="submenu-link">Another Menu</a>
 
-                        <ul class="submenu submenu-level-2 ">
+                            </ul>
 
+                        </li>
 
-                            <li class="submenu-item ">
-                                <a href="#" class="submenu-link">Second Level Menu</a>
-                            </li>
+                        <li class="submenu-item  has-sub">
+                            <a href="#" class="submenu-link">Another Menu</a>
 
+                            <ul class="submenu submenu-level-2 ">
 
-                        </ul>
 
-                    </li>
+                                <li class="submenu-item ">
+                                    <a href="#" class="submenu-link">Second Level Menu</a>
+                                </li>
 
-                </ul>
 
+                            </ul>
 
-            </li>
+                        </li>
 
-            <li class="sidebar-title">Pages</li>
+                    </ul>
 
-            <li
-                class="sidebar-item  ">
-                <a href="application-email.html" class='sidebar-link'>
-                    <i class="bi bi-envelope-fill"></i>
-                    <span>Email Application</span>
-                </a>
 
+                </li>
 
-            </li>
+                <li class="sidebar-title">Pages</li>
 
-            <li
-                class="sidebar-item  ">
-                <a href="application-chat.html" class='sidebar-link'>
-                    <i class="bi bi-chat-dots-fill"></i>
-                    <span>Chat Application</span>
-                </a>
+                <li class="sidebar-item  ">
+                    <a href="application-email.html" class='sidebar-link'>
+                        <i class="bi bi-envelope-fill"></i>
+                        <span>Email Application</span>
+                    </a>
 
 
-            </li>
+                </li>
 
-            <li
-                class="sidebar-item  ">
-                <a href="application-gallery.html" class='sidebar-link'>
-                    <i class="bi bi-image-fill"></i>
-                    <span>Photo Gallery</span>
-                </a>
+                <li class="sidebar-item  ">
+                    <a href="application-chat.html" class='sidebar-link'>
+                        <i class="bi bi-chat-dots-fill"></i>
+                        <span>Chat Application</span>
+                    </a>
 
 
-            </li>
+                </li>
 
-            <li
-                class="sidebar-item  ">
-                <a href="application-checkout.html" class='sidebar-link'>
-                    <i class="bi bi-basket-fill"></i>
-                    <span>Checkout Page</span>
-                </a>
+                <li class="sidebar-item  ">
+                    <a href="application-gallery.html" class='sidebar-link'>
+                        <i class="bi bi-image-fill"></i>
+                        <span>Photo Gallery</span>
+                    </a>
 
 
-            </li>
+                </li>
 
-            <li
-                class="sidebar-item  has-sub">
-                <a href="#" class='sidebar-link'>
-                    <i class="bi bi-person-badge-fill"></i>
-                    <span>Authentication</span>
-                </a>
+                <li class="sidebar-item  ">
+                    <a href="application-checkout.html" class='sidebar-link'>
+                        <i class="bi bi-basket-fill"></i>
+                        <span>Checkout Page</span>
+                    </a>
 
-                <ul class="submenu ">
 
-                    <li class="submenu-item  ">
-                        <a href="auth-login.html" class="submenu-link">Login</a>
+                </li>
 
-                    </li>
+                <li class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-person-badge-fill"></i>
+                        <span>Authentication</span>
+                    </a>
 
-                    <li class="submenu-item  ">
-                        <a href="auth-register.html" class="submenu-link">Register</a>
+                    <ul class="submenu ">
 
-                    </li>
+                        <li class="submenu-item  ">
+                            <a href="auth-login.html" class="submenu-link">Login</a>
 
-                    <li class="submenu-item  ">
-                        <a href="auth-forgot-password.html" class="submenu-link">Forgot Password</a>
+                        </li>
 
-                    </li>
+                        <li class="submenu-item  ">
+                            <a href="auth-register.html" class="submenu-link">Register</a>
 
-                </ul>
+                        </li>
 
+                        <li class="submenu-item  ">
+                            <a href="auth-forgot-password.html" class="submenu-link">Forgot Password</a>
 
-            </li>
+                        </li>
 
-            <li
-                class="sidebar-item  has-sub">
-                <a href="#" class='sidebar-link'>
-                    <i class="bi bi-x-octagon-fill"></i>
-                    <span>Errors</span>
-                </a>
+                    </ul>
 
-                <ul class="submenu ">
 
-                    <li class="submenu-item  ">
-                        <a href="error-403.html" class="submenu-link">403</a>
+                </li>
 
-                    </li>
+                <li class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-x-octagon-fill"></i>
+                        <span>Errors</span>
+                    </a>
 
-                    <li class="submenu-item  ">
-                        <a href="error-404.html" class="submenu-link">404</a>
+                    <ul class="submenu ">
 
-                    </li>
+                        <li class="submenu-item  ">
+                            <a href="error-403.html" class="submenu-link">403</a>
 
-                    <li class="submenu-item  ">
-                        <a href="error-500.html" class="submenu-link">500</a>
+                        </li>
 
-                    </li>
+                        <li class="submenu-item  ">
+                            <a href="error-404.html" class="submenu-link">404</a>
 
-                </ul>
+                        </li>
 
+                        <li class="submenu-item  ">
+                            <a href="error-500.html" class="submenu-link">500</a>
 
-            </li>
+                        </li>
+
+                    </ul>
+
+
+                </li>
             @endif
         </ul>
     </div>

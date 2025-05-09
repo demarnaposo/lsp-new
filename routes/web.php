@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\SkemaKkniController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\SkkniController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -36,19 +37,18 @@ Route::middleware('auth')->group(function () {
 
 
     Route::prefix('skema-kkni')->name('skema-kkni.')->group(function () {
-
-        // Menampilkan daftar skema KKNI
         Route::get('/', [SkemaKkniController::class, 'index'])->name('index');
-
-        // Menampilkan form create
         Route::get('/create', [SkemaKkniController::class, 'create'])->name('create');
-
-        // Proses store (simpan data) dengan method POST
         Route::post('/', [SkemaKkniController::class, 'store'])->name('store');
 
         // Jika ada route untuk edit atau update, bisa ditambahkan di sini
         // Route::get('/edit/{id}', [SkemaKkniController::class, 'edit'])->name('edit');
         // Route::put('/update/{id}', [SkemaKkniController::class, 'update'])->name('update');
+    });
+
+    Route::prefix('skkni')->name('skkni.')->group(function () {
+
+        Route::get('/', [SkkniController::class, 'index'])->name('index');
     });
 
 });

@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
                     <h3>{{ $title }}</h3>
-                    <p class="text-subtitle text-muted">Data Skema Sertifikasi Profesi</p>
+                    <p class="text-subtitle text-muted">Data SKKNI</p>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -25,7 +25,7 @@
             <div class="card">
                 <div class="card-header">
                     <h5 class="card-title">
-                        <a href="{{ route('skema-kkni.create') }}" class="btn btn-primary">Tambah Data</a>
+                        {{-- <a href="{{ route('skkni.create') }}" class="btn btn-primary">Tambah Data</a> --}}
                     </h5>
 
                 </div>
@@ -35,38 +35,27 @@
                             <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>Kode Skema</th>
-                                    <th>Nama Skema Sertifikasi</th>
-                                    <th>Standar Kompetensi</th>
-                                    <th>Persyaratan</th>
-                                    {{-- <th>File</th> --}}
+                                    <th>Identitas dan Data Standar Kompetensi</th>
+                                    <th>Penerbit</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($skema as $no => $s)
+                                @forelse ($skkni as $no => $s)
                                     <tr>
                                         <td>{{ $no + 1 }}.</td>
                                         <td>
+                                            <div>{{ $s->no_skkni }}</div>
+                                            <div>{{ $s->nama }}</div>
+                                            <div>Jenis : <strong>{{ $s->jenis_standard }}</strong></div>
+                                        </td>
+                                        {{-- <td>
                                             <div>{{ $s->kode_skema }}</div>
                                             <div><span class="badge bg-success">Kedalaman bukti :
                                                     {{ $s->apl02 }}</span></div>
-                                        </td>
-                                        <td>{{ $s->judul }}</td>
-                                        <td>
-                                            <ul>
-                                                @foreach ($getunit[$s->id] ?? [] as $unit)
-                                                    <li>
-                                                        <span><strong>{{ $unit->no_skkni }}</strong></span>
-                                                    </li>
-                                                    <span>{{ $unit->nama }}</span>
-                                                    <div>
-                                                        <a href="#" class="badge bg-danger">Unduh Dok. Standard Kompetensi</a>
-                                                    </div>
-                                                @endforeach
-                                            </ul>
-                                        </td>
-                                        <td>Offenburg</td>
+                                        </td> --}}
+                                        <td>{{ $s->penyusun }}</td>
+
                                         {{-- <td>
                                             <a href="{{ asset('storage/file/' . $s->file) }}" target="_blank">
 
@@ -75,13 +64,8 @@
                                         </td> --}}
 
                                         <td>
-                                            <a href="#" class="badge bg-primary">Lihat</a>
+                                            <a href="#" class="badge bg-success">Ubah</a>
                                             <a href="#" class="badge bg-danger">Hapus</a>
-                                            @if ($s->aktif == 'Y')
-                                                <span class="badge bg-success">Aktif</span>
-                                            @else
-                                                <span class="badge bg-danger">Tidak Aktif</span>
-                                            @endif
                                         </td>
 
                                     </tr>
