@@ -7,6 +7,7 @@ use App\Http\Controllers\LocationController;
 use App\Http\Controllers\SkemaKkniController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\SkkniController;
+use App\Http\Controllers\UnitKompetensiController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -49,7 +50,13 @@ Route::middleware('auth')->group(function () {
     Route::prefix('skkni')->name('skkni.')->group(function () {
 
         Route::get('/', [SkkniController::class, 'index'])->name('index');
+        Route::get('/create', [SkkniController::class, 'create'])->name('create');
+        Route::post('/', [SkkniController::class, 'store'])->name('store');
     });
+
+    Route::get('/unit-kompetensi/{id}', [UnitKompetensiController::class,'index'])->name('unit-kompetensi.index');
+    Route::get('/unit-kompetensi/{id}/create', [UnitKompetensiController::class,'create'])->name('unit-kompetensi.create');
+    Route::post('/unit-kompetensi/{id}', [UnitKompetensiController::class,'store'])->name('unit-kompetensi.store');
 
 });
 

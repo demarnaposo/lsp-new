@@ -52,7 +52,10 @@
                                             <div><span class="badge bg-success">Kedalaman bukti :
                                                     {{ $s->apl02 }}</span></div>
                                         </td>
-                                        <td>{{ $s->judul }}</td>
+                                        <td>
+                                            <div>{{ $s->judul }}</div>
+                                            {{-- <div>{{ $unitCount }} Unit Kompetensi</div> --}}
+                                        </td>
                                         <td>
                                             <ul>
                                                 @foreach ($getunit[$s->id] ?? [] as $unit)
@@ -61,7 +64,8 @@
                                                     </li>
                                                     <span>{{ $unit->nama }}</span>
                                                     <div>
-                                                        <a href="#" class="badge bg-danger">Unduh Dok. Standard Kompetensi</a>
+                                                        <a href="#" class="badge bg-danger">Unduh Dok. Standard
+                                                            Kompetensi</a>
                                                     </div>
                                                 @endforeach
                                             </ul>
@@ -75,8 +79,15 @@
                                         </td> --}}
 
                                         <td>
-                                            <a href="#" class="badge bg-primary">Lihat</a>
-                                            <a href="#" class="badge bg-danger">Hapus</a>
+                                            <div>
+                                                <a href="#" class="badge bg-primary">Lihat</a>
+                                            </div>
+                                            <div>
+                                                <a href="{{ route('unit-kompetensi.index', $s->id) }}" class="badge bg-primary">Unit Kompetensi</a>
+                                            </div>
+                                            <div>
+                                                <a href="#" class="badge bg-danger">Hapus</a>
+                                            </div>
                                             @if ($s->aktif == 'Y')
                                                 <span class="badge bg-success">Aktif</span>
                                             @else

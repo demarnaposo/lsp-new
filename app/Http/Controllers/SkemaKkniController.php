@@ -16,21 +16,25 @@ class SkemaKkniController extends Controller
         $title = "Skema Sertifikasi Profesi";
 
         $skema = SkemaKkni::all();
+
+
+
         $getunit = DB::table('skknis')
             ->select('skknis.no_skkni', 'skknis.nama', 'skema_kknis.id as skema_id')
             ->distinct()
             ->join('unit_kompetensis', 'skknis.id', '=', 'unit_kompetensis.skkni_id')
             ->join('skema_kknis', 'unit_kompetensis.skemakkni_id', '=', 'skema_kknis.id')
-            ->whereIn('skema_kknis.id', $skema->pluck('id')->toArray())
+            ->whereIn('skema_kknis.id', $skema->pluck('id'))
             ->get()
             ->groupBy('skema_id');
 
 
-        // dd($getunit);
 
-        // dd($skema);
 
-        return view("skema-kkni.index", compact("title", "skema", "getunit"));
+
+        // dd($unitCount);
+
+        return view('skema-kkni.index', compact('title', 'skema', 'getunit'));
     }
 
     /**
@@ -114,8 +118,10 @@ class SkemaKkniController extends Controller
 
             $skema->file = $filename;
 
-            $skema->save();
+
         }
+
+        $skema->save();
 
         return redirect()->route('skema-kkni.index')->with('success', 'Skema berhasil disimpan!');
     }
