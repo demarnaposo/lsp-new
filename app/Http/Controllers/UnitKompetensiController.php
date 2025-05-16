@@ -35,11 +35,16 @@ class UnitKompetensiController extends Controller
             ->get();
 
 
-        //  dd($unit);
+        $countElemen = DB::table('elemen_kompetensis')
+            ->select('unitkompetensi_id', DB::raw('COUNT(*) as total'))
+            ->groupBy('unitkompetensi_id')
+            ->pluck('total', 'unitkompetensi_id');
 
 
+            // dd($countElemen);
 
-        return view("unit-kompetensi.index", compact("title", "unit", "id"));
+
+        return view('unit-kompetensi.index', compact('title', 'unit', 'id', 'countElemen'));
     }
 
     /**
@@ -101,9 +106,6 @@ class UnitKompetensiController extends Controller
 
 
         return redirect()->route('unit-kompetensi.index', $id)->with('success', 'Unit Kompetensi berhasil ditambah!');
-
-
-
     }
 
     /**

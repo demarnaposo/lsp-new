@@ -25,7 +25,7 @@
             <div class="card">
                 <div class="card-header">
                     <h5 class="card-title">
-                        <a href="{{ route('unit-kompetensi.create', $id) }}" class="btn btn-primary">Tambah Data</a>
+                        <a href="{{ route('elemen-kompetensi.create', $id) }}" class="btn btn-primary">Tambah Data</a>
                     </h5>
 
                 </div>
@@ -35,52 +35,40 @@
                             <thead>
                                 <tr>
                                     <th>No.</th>
+                                    <th>Nama Elemen</th>
                                     <th>Unit Kompetensi</th>
-                                    <th>Skema Sertifikasi</th>
-                                    <th>Standar</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($unit as $no => $u)
+                                @forelse ($elemen as $no => $e)
                                     <tr>
                                         <td>{{ $no + 1 }}.</td>
+
                                         <td>
-                                            <div>{{ $u->kode_unit }}</div>
-                                            <div>{{ $u->judul }}</div>
-                                            <div>{{ $u->judul_eng }}</div>
-                                            @php $elemen = $countElemen[$u->id] ?? 0; @endphp
-                                            <div>
-                                                <a href="{{ route('elemen-kompetensi.index', $u->id) }}"
-                                                    class="badge {{ $elemen ? 'bg-success' : 'bg-primary' }}">
-                                                    {{ $elemen ? $elemen . ' Elemen Kompetensi' : 'Input Elemen Kompetensi' }}
-                                                </a>
+                                            <div>{{ $e->elemen_kompetensi }}</div>
+                                             <div>
+                                                <a href="{{ route('kriteria-unjukkerja.index', $e->id) }}" class="badge bg-primary">Input Kriteria Unjuk Kerja</a>
                                             </div>
-
-
+                                        </td>
+                                        <td>
+                                             <div>{{ $e->kode_unit }}</div>
+                                            <div>{{ $e->judul }}</div>
+                                            <div>{{ $e->judul_eng }}</div>
                                         </td>
 
                                         <td>
-                                            <div>{{ $u->kode_skema }}</div>
-                                            <div>{{ $u->judul_skema }}</div>
-                                        </td>
-
-                                        <td>
-                                            <div>{{ $u->no_skkni }}</div>
-                                            <div>{{ $u->nama }}</div>
-                                            <div>({{ $u->jenis }})</div>
-                                        </td>
-
-                                        <td>
-                                            <a href="#" class="badge bg-success">Ubah</a>
+                                            <div><a href="#" class="badge bg-success">Ubah</a></div>
+                                            {{-- <a href="#" class="badge bg-success">Ubah</a> --}}
                                         </td>
 
                                     </tr>
                                 @empty
 
-                                    {{-- <tr>
+                                {{-- <tr>
                                     <td colspan="5" class="text-center text-muted">Data tidak tersedia</td>
                                 </tr> --}}
+
                                 @endforelse
                             </tbody>
 

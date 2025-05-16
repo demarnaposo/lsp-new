@@ -87,7 +87,7 @@
             </li>
 
             @if (Auth::check() && Auth::user()->role_id == 1)
-                <li class="sidebar-item {{ request()->routeIs('skema-kkni.*') ? 'active' : '' }}">
+                <li class="sidebar-item {{ request()->routeIs(['skema-kkni.*', 'unit-kompetensi.*', 'elemen-kompetensi.*']) ? 'active' : '' }}">
                     <a href="{{ route('skema-kkni.index') }}" class='sidebar-link'>
                         <i class="bi bi-envelope-fill"></i>
                         <span>Skema Sertifikasi</span>

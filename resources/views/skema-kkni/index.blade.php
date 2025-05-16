@@ -64,7 +64,7 @@
                                                     </li>
                                                     <span>{{ $unit->nama }}</span>
                                                     <div>
-                                                        <a href="#" class="badge bg-danger">Unduh Dok. Standard
+                                                        <a href="{{ asset('storage/file/' . $unit->file) }}" target="_blank" class="badge bg-danger">Unduh Dok. Standard
                                                             Kompetensi</a>
                                                     </div>
                                                 @endforeach

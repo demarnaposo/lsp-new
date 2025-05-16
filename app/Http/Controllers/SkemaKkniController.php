@@ -20,7 +20,7 @@ class SkemaKkniController extends Controller
 
 
         $getunit = DB::table('skknis')
-            ->select('skknis.no_skkni', 'skknis.nama', 'skema_kknis.id as skema_id')
+            ->select('skknis.no_skkni', 'skknis.nama', 'skknis.file', 'skema_kknis.id as skema_id')
             ->distinct()
             ->join('unit_kompetensis', 'skknis.id', '=', 'unit_kompetensis.skkni_id')
             ->join('skema_kknis', 'unit_kompetensis.skemakkni_id', '=', 'skema_kknis.id')
@@ -32,6 +32,7 @@ class SkemaKkniController extends Controller
 
 
 
+            // dd($getunit);
         // dd($unitCount);
 
         return view('skema-kkni.index', compact('title', 'skema', 'getunit'));
